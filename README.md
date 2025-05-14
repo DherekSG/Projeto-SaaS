@@ -46,6 +46,7 @@ Projeto-SaaS/
 |---------|--------|
 | **Dherek** | Líder técnico geral, integração de módulos |
 | **Tego**   | Backend em PHP e integração com Python |
+| **Hey**    | Backend em PHP e integração a Banco de dados |
 | **Gaby**   | Interface desktop em C#, testes |
 | **Livai**  | Backend em C#, Qualidade visual e testes |
 | **Pony**   | Banco de dados, Power BI e documentação |
