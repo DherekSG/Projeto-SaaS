@@ -25,20 +25,19 @@ Este projeto tem como objetivo o desenvolvimento de uma aplicação SaaS voltada
 | Deploy (opcional)   | XAMPP, EC2 Free Tier, Replit |
 
 ## 📂 Estrutura do Projeto
-
+```
 Projeto-SaaS/
-│
-├── backend/ # Código PHP (API, login, rotas)
-├── desktop/ # Código C# (interface offline)
-├── docs/ # Documentação e diagramas
-├── datasets/ # Dados de teste e arquivos CSV
-├── frontend/ # HTML, CSS, JS, Bootstrap
-├── powerbi/ # Dashboards e arquivos PBIX
-├── python/ # Scripts de análise e ML
-├── sql/ # Scripts SQL para criação e povoamento do BD
-│
+├── backend/        # Código PHP (API, login, rotas)
+├── desktop/        # Código C# (interface offline)
+├── docs/           # Documentação e diagramas
+├── datasets/       # Dados de teste e arquivos CSV
+├── frontend/       # HTML, CSS, JS, Bootstrap
+├── powerbi/        # Dashboards e arquivos PBIX
+├── python/         # Scripts de análise e ML
+├── sql/            # Scripts SQL para criação e povoamento do BD
 ├── .gitignore
 └── README.md
+```
 
 
 ## 👥 Equipe
