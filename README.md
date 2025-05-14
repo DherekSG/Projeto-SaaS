@@ -44,7 +44,7 @@ Projeto-SaaS/
 
 | Nome    | Função |
 |---------|--------|
-| **Dherek** | Líder técnico geral, integração de módulos |
+| **[Dherek](https://github.com/DherekSG)** | Líder técnico geral, integração de módulos |
 | **Tego**   | Backend em PHP e integração com Python |
 | **Hey**    | Backend em PHP e integração a Banco de dados |
 | **Gaby**   | Interface desktop em C#, testes |
