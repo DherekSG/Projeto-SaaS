@@ -59,5 +59,3 @@ Projeto-SaaS/
 - Python 3.x
 - Power BI Desktop
 - Visual Studio (para o app CS#)
-
-test
