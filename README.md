@@ -44,11 +44,12 @@ Projeto-SaaS/
 
 | Nome    | Função |
 |---------|--------|
-| **Dherek** | Líder técnico geral, integração de módulos |
+| **[Dherek](https://github.com/DherekSG)** | Líder técnico geral, integração de módulos |
 | **Tego**   | Backend em PHP e integração com Python |
+| **[Hey](https://github.com/Gucostaa)**    | Backend em PHP e integração a Banco de dados |
 | **Gaby**   | Interface desktop em C#, testes |
-| **Livai**  | Qualidade visual e testes |
-| **Pony**   | Banco de dados, Power BI e documentação |
+| **[Livai](https://github.com/Livai1)**  | Backend em C#, Qualidade visual e testes |
+| **[Pony](https://github.com/juanmh10)**   | Banco de dados, Power BI e documentação |
 
 ## ⚙️ Como Executar
 
@@ -57,6 +58,6 @@ Projeto-SaaS/
 - PostgreSQL
 - Python 3.x
 - Power BI Desktop
-- Visual Studio (para o app C#)
+- Visual Studio (para o app CS#)
 
-.t
+test
