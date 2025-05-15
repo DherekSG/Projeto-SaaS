@@ -45,9 +45,9 @@ Projeto-SaaS/
 | Nome    | Função |
 |---------|--------|
 | **[Dherek](https://github.com/DherekSG)** | Líder técnico geral, integração de módulos |
-| **Tego**   | Backend em PHP e integração com Python |
+| **[Tego](https://github.com/TiagoRochaDSantos)**   | Backend em PHP e integração com Python |
 | **[Hey](https://github.com/Gucostaa)**    | Backend em PHP e integração a Banco de dados |
-| **Gaby**   | Interface desktop em C#, testes |
+| **[Gaby](https://github.com/)**   | Interface desktop em C#, testes |
 | **[Livai](https://github.com/Livai1)**  | Backend em C#, Qualidade visual e testes |
 | **[Pony](https://github.com/juanmh10)**   | Banco de dados, Power BI e documentação |
 
