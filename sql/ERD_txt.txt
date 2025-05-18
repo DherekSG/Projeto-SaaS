@@ -1,0 +1,60 @@
+1. Usuarios
+
+id (PK)
+nome
+email (UNIQUE)
+senha_hash
+criado_em
+
+2. Clientes
+id (PK)
+nome
+email
+telefone
+canal (email, telefone, whatsapp, app)
+data_cadastro
+criado em
+
+3. Atendimentos
+id (PK)
+cliente_id (FK → Clientes.id)
+data_atendimento
+criado_em
+descricao
+
+4. Feedbacks
+
+id (PK)
+cliente_id (FK → Clientes.id)
+nota_nps
+comentario
+criado_em
+data_feedback
+
+5. Churn_Predict
+
+id (PK)
+cliente_id (FK → Clientes.id)
+risco_churn (0 a 1)
+modelo_usado
+criado_em
+data_prevista
+
+6. Eventos
+
+id (PK)
+cliente_id (FK → Clientes.id)
+tipo_evento (login, logout, acesso_relatorio, cancelamento, novo_feedback)
+data evento
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Relacionamentos:
+
+Clientes 1-----N Atendimentos
+Clientes 1-----N Feedbacks
+Clientes 1-----N Churn_Predict
+Clientes 1-----N Eventos
