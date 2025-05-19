@@ -2,6 +2,7 @@
 // conexão do banco de dados
 $host = "localhost";
 $dbname = "projeto_SaaS";
+$port = "5432";
 $user = "root";
 $pass = "admin123"; // COLOCA A SENHA AQUI CABAÇO
 
