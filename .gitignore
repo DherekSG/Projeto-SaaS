@@ -3,3 +3,4 @@ node_modules/
 *.exe
 *.pbix
 .idea/
+backend/conexao.php
