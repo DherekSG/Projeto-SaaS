@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 
-df = pd.read_csv('https://github.com/DherekSG/Projeto-SaaS/tree/master/TestPython/CSV/WA_Fn-UseC_-Telco-Customer-Churn.csv')
+df = pd.read_csv('https://github.com/DherekSG/Projeto-SaaS/tree/master/TestPython/CSV/model_churn.csv')
 df.drop(columns=['customerID'], inplace=True)   
 
 #Pre-processamento
