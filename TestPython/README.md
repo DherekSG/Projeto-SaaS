@@ -18,3 +18,5 @@ Estrutura geral do train_model:
 7. Exportação do modelo (.pkl)
 
 
+Adicionado o train_model funcional.
+
