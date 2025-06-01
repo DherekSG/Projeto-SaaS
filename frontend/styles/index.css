@@ -1,0 +1,358 @@
+:root {
+    --font-family: 'Urbanist', sans-serif;
+
+    /* Cores modo claro */
+    --bg-light: #ffffff;
+    --text-light: #1a1a1a;
+    --primary-light: #2575fc;
+    --secondary-light: #6a11cb;
+
+    /* Cores modo escuro */
+    --bg-dark: linear-gradient(135deg, #141e30, #243b55);
+    --text-dark: #f0f0f0;
+    --primary-dark: #00c3ff;
+    --secondary-dark: #6a11cb;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background: var(--bg-light);
+    color: var(--text-light);
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Modo escuro */
+body.dark-mode {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-light);
+}
+
+body.dark-mode header h1 {
+    color: var(--primary-dark);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espaçamento entre links e botão */
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-light);
+}
+
+body.dark-mode nav a:hover {
+    color: var(--primary-dark);
+}
+
+/* Seções */
+section {
+    padding: 60px 10%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Hero com degradê sutil e elegante, texto maior e sombra, botão CTA */
+.hero {
+    text-align: center;
+    padding: 120px 10% 80px;
+    background: linear-gradient(135deg, #243b55 0%, #6a11cb 60%, #2575fc 100%);
+    color: white;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.hero h2 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+/* Botão CTA */
+.cta-button {
+    font-family: var(--font-family);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 15px 40px;
+    background: linear-gradient(90deg, #00c3ff, #6a11cb);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0, 195, 255, 0.6);
+}
+
+.cta-button:hover {
+    background: linear-gradient(90deg, #6a11cb, #00c3ff);
+    box-shadow: 0 6px 18px rgba(106, 17, 203, 0.8);
+}
+
+/* Seções: textos maiores e mais espaçamento */
+.sobre, .servicos, #cases, #contato {
+    margin-top: 60px;
+}
+
+.sobre h2,
+.servicos h2,
+#cases h2,
+#contato h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    border-left: 6px solid var(--primary-light);
+    padding-left: 15px;
+}
+
+body.dark-mode .sobre h2,
+body.dark-mode .servicos h2,
+body.dark-mode #cases h2,
+body.dark-mode #contato h2 {
+    border-color: var(--primary-dark);
+}
+
+/* Textos maiores e com espaçamento */
+.sobre .texto p,
+.cases p,
+#contato p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Carrossel da seção Quem Somos */
+.carrossel {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.carrossel img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    flex: 1 1 300px;
+}
+
+body.dark-mode .carrossel img {
+    box-shadow: 0 6px 20px rgba(255,255,255,0.15);
+}
+
+/* Serviços */
+.services {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service {
+    flex: 1 1 300px;
+    background-color: rgba(0,0,0,0.05);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+body.dark-mode .service {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.service:hover {
+    transform: translateY(-5px);
+}
+
+.service h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--primary-light);
+}
+
+body.dark-mode .service h3 {
+    color: var(--primary-dark);
+}
+
+/* Casos */
+.case-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.case-item p {
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.case-item img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+/* Formulário de login */
+.login form {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.login input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+}
+
+body.dark-mode .login input[type="text"] {
+    background-color: #ffffff0d;
+    border: 1px solid #ffffff33;
+    color: white;
+}
+
+.login button {
+    padding: 10px 20px;
+    background: linear-gradient(to right, var(--secondary-light), var(--primary-light));
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login button:hover {
+    background: linear-gradient(to right, var(--primary-light), var(--secondary-light));
+}
+
+body.dark-mode .login button {
+    background: linear-gradient(to right, var(--secondary-dark), var(--primary-dark));
+}
+
+body.dark-mode .login button:hover {
+    background: linear-gradient(to right, var(--primary-dark), var(--secondary-dark));
+}
+
+/* Contato */
+#contato a {
+    color: var(--primary-light);
+    text-decoration: none;
+}
+
+#contato a:hover {
+    text-decoration: underline;
+}
+
+body.dark-mode #contato a {
+    color: var(--primary-dark);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+#toggle-theme-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  margin-left: 20px;
+  padding: 0;
+  color: var(--text-light); /* cor padrão (modo claro) */
+  transition: filter 0.3s ease, color 0.3s ease;
+  align-self: center; /* alinha verticalmente */
+}
+
+body.dark-mode #toggle-theme-btn {
+  color: var(--text-dark); /* modo escuro: branco */
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: currentColor;
+  border-radius: 2px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .services {
+        flex-direction: column;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .sobre h2,
+    .servicos h2,
+    #cases h2,
+    #contato h2 {
+        font-size: 2.2rem;
+    }
+
+    .carrossel {
+        flex-direction: column;
+    }
+}
