@@ -33,11 +33,11 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
-    background-color: rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(8px);
-    position: sticky;
-    top: 0;
+    background-color: #ffffff; 
+    left: 0;
+    right: 0;
     z-index: 999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
@@ -46,14 +46,18 @@ header h1 {
     color: var(--primary-light);
 }
 
+body.dark-mode header {
+    background-color: #141e30;
+}
+
 body.dark-mode header h1 {
     color: var(--primary-dark);
 }
 
 nav {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* espaçamento entre links e botão */
+    display: flex;
+    align-items: center;
+    gap: 20px; /* espaçamento entre links e botão */
 }
 
 nav a {
@@ -73,6 +77,24 @@ body.dark-mode nav a:hover {
     color: var(--primary-dark);
 }
 
+/* Destaques */
+
+.destaque {
+    color: #ffdd57; 
+    font-weight: 800;
+}
+body.dark-mode .destaque {
+    color: #ffdd57; 
+}
+
+.destaque2 {
+    color: #ffdd57; 
+    font-weight: 800;
+}
+body.dark-mode .destaque2 {
+    color: #ffdd57; 
+}
+
 /* Seções */
 section {
     padding: 60px 10%;
@@ -80,13 +102,12 @@ section {
     margin: auto;
 }
 
-/* Hero com degradê sutil e elegante, texto maior e sombra, botão CTA */
 .hero {
     text-align: center;
     padding: 120px 10% 80px;
-    background: linear-gradient(135deg, #243b55 0%, #6a11cb 60%, #2575fc 100%);
+    background: linear-gradient(135deg, #2575fc 0%, #00c3ff 80%);
     color: white;
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.4);
     position: relative;
 }
 
@@ -94,7 +115,8 @@ section {
     font-size: 3.2rem;
     margin-bottom: 20px;
     font-weight: 700;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    color: #ffffff;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
     line-height: 1.2;
 }
 
@@ -102,28 +124,61 @@ section {
     font-size: 1.4rem;
     max-width: 700px;
     margin: 0 auto 30px auto;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    color: #d0eaff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Botão CTA */
+/* Botão CTA - Light Mode */
 .cta-button {
-    font-family: var(--font-family);
-    font-size: 1.2rem;
-    font-weight: 700;
-    padding: 15px 40px;
-    background: linear-gradient(90deg, #00c3ff, #6a11cb);
+    background: linear-gradient(90deg, #ffffff, #f0f9ff);
+    color: #2575fc;
+    padding: 14px 36px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 10px;
     border: none;
-    border-radius: 30px;
-    color: white;
+    box-shadow: 0 8px 20px rgba(0, 195, 255, 0.25);
+    transition: all 0.3s ease;
     cursor: pointer;
-    transition: background 0.4s ease;
-    box-shadow: 0 5px 15px rgba(0, 195, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Botão CTA - Efeito brilho */
+.cta-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+    transition: all 0.6s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
 }
 
 .cta-button:hover {
-    background: linear-gradient(90deg, #6a11cb, #00c3ff);
-    box-shadow: 0 6px 18px rgba(106, 17, 203, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 195, 255, 0.4);
 }
+
+/* Botão CTA - Dark Mode */
+body.dark-mode .cta-button {
+    background: #141e30;
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .cta-button:hover {
+    background: #1c2a45;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+}
+
+
+
 
 /* Seções: textos maiores e mais espaçamento */
 .sobre, .servicos, #cases, #contato {
@@ -156,23 +211,40 @@ body.dark-mode #contato h2 {
     margin-bottom: 20px;
 }
 
-/* Carrossel da seção Quem Somos */
 .carrossel {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
     align-items: center;
-    flex-wrap: wrap;
 }
-
-.carrossel img {
-    max-width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  
+.carrossel .texto {
+    flex: 1 1 400px;
+}
+  
+.carrossel-imagens {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 16px;
     flex: 1 1 300px;
 }
-
-body.dark-mode .carrossel img {
-    box-shadow: 0 6px 20px rgba(255,255,255,0.15);
+  
+.carrossel-imagens img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+  
+.carrossel-imagens img.active {
+    opacity: 1;
 }
 
 /* Serviços */
@@ -208,25 +280,49 @@ body.dark-mode .service h3 {
     color: var(--primary-dark);
 }
 
-/* Casos */
-.case-list {
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 2rem;
+}
+  
+.card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.case-item p {
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+  
+.case-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+    object-fit: contain;
+}
+  
+.case-content h3 {
     font-size: 1.25rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+  
+.case-content p {
+    font-size: 1rem;
     line-height: 1.5;
+    color: #555;
 }
-
-.case-item img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 12px;
-    margin-top: 15px;
-}
-
+  
 /* Formulário de login */
 .login form {
     margin-top: 20px;
@@ -296,30 +392,30 @@ footer {
 }
 
 #toggle-theme-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 18px;
-  margin-left: 20px;
-  padding: 0;
-  color: var(--text-light); /* cor padrão (modo claro) */
-  transition: filter 0.3s ease, color 0.3s ease;
-  align-self: center; /* alinha verticalmente */
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    margin-left: 20px;
+    padding: 0;
+    color: var(--text-light); 
+    transition: filter 0.3s ease, color 0.3s ease;
+    align-self: center; 
 }
 
 body.dark-mode #toggle-theme-btn {
-  color: var(--text-dark); /* modo escuro: branco */
+    color: var(--text-dark); 
 }
 
 .hamburger-line {
-  width: 100%;
-  height: 3px;
-  background-color: currentColor;
-  border-radius: 2px;
+    width: 100%;
+    height: 3px;
+    background-color: currentColor;
+    border-radius: 2px;
 }
 
 /* Responsivo */

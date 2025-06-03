@@ -1,7 +1,5 @@
-  // Seleciona o botão
   const toggleBtn = document.getElementById('toggle-theme-btn');
 
-  // Função para alternar o modo
   function toggleTheme() {
     const body = document.body;
     if(body.classList.contains('dark-mode')) {
@@ -13,10 +11,8 @@
     }
   }
 
-  // Ao clicar no botão alterna o tema
   toggleBtn.addEventListener('click', toggleTheme);
 
-  // Mantém a preferência salva no localStorage
   window.addEventListener('load', () => {
     const savedTheme = localStorage.getItem('theme');
     if(savedTheme === 'dark') {
@@ -25,3 +21,4 @@
       document.body.classList.remove('dark-mode');
     }
   });
+  
