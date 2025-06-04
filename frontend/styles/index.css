@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 :root {
     --font-family: 'Urbanist', sans-serif;
 
@@ -15,6 +21,8 @@
 }
 
 body {
+    width: 100%;
+    overflow-x: hidden;
     margin: 0;
     font-family: var(--font-family);
     background: var(--bg-light);
@@ -77,6 +85,131 @@ body.dark-mode nav a:hover {
     color: var(--primary-dark);
 }
 
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100px;
+    right: 3.8%;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    animation: fadeIn 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  
+  .dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdown-menu li {
+    margin-bottom: 10px;
+  }
+  
+  .dropdown-menu li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .dropdown-menu a,
+  .dropdown-menu button {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  .dropdown-menu a:hover,
+  .dropdown-menu button:hover {
+    color: var(--primary-light);
+  }
+  
+  body.dark-mode .dropdown-menu {
+    background: #1a1a2e;
+  }
+  
+  body.dark-mode .dropdown-menu a,
+  body.dark-mode .dropdown-menu button {
+    color: var(--text-dark);
+  }
+  
+  body.dark-mode .dropdown-menu a:hover,
+  body.dark-mode .dropdown-menu button:hover {
+    color: var(--primary-dark);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Switch estilizado */
+.switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background-color: #ccc;
+    border-radius: 50px;
+    transition: 0.4s;
+  }
+  
+  .slider::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2575fc;
+  }
+  
+  input:checked + .slider::before {
+    transform: translateX(24px);
+  }
+  
+  .slider.round {
+    border-radius: 50px;
+  }
+  
+  .switch-label {
+    font-weight: 500;
+  }
+  
 /* Destaques */
 
 .destaque {
@@ -98,14 +231,14 @@ body.dark-mode .destaque2 {
 /* Seções */
 section {
     padding: 60px 10%;
-    max-width: 1200px;
     margin: auto;
 }
 
 .hero {
     text-align: center;
-    padding: 120px 10% 80px;
-    background: linear-gradient(135deg, #2575fc 0%, #00c3ff 80%);
+    padding: 60px 5% 40px;
+    background: linear-gradient(135deg, #2575fc 0%, #00c3ff 100%);
+    background-size: cover;
     color: white;
     box-shadow: inset 0 0 50px rgba(0,0,0,0.4);
     position: relative;
@@ -176,9 +309,6 @@ body.dark-mode .cta-button:hover {
     background: #1c2a45;
     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
 }
-
-
-
 
 /* Seções: textos maiores e mais espaçamento */
 .sobre, .servicos, #cases, #contato {
@@ -420,35 +550,65 @@ body.dark-mode #toggle-theme-btn {
 
 /* Responsivo */
 @media (max-width: 768px) {
-    .services {
-        flex-direction: column;
-    }
-
     header {
-        flex-direction: column;
-        align-items: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
     }
-
+  
     nav {
-        margin-top: 10px;
+      flex-wrap: wrap;
+      gap: 10px;
+      flex-direction: column;
+      align-items: flex-start;
     }
-
+  
+    nav a {
+      margin-left: 0;
+      font-size: 1.2rem;
+    }
+  
     .hero h2 {
-        font-size: 2.2rem;
+      font-size: 2rem;
     }
-
+  
     .hero p {
-        font-size: 1.1rem;
+      font-size: 1rem;
+      padding: 0 10px;
     }
-
-    .sobre h2,
-    .servicos h2,
-    #cases h2,
-    #contato h2 {
-        font-size: 2.2rem;
+  
+    section {
+      padding: 40px 5%;
     }
-
+  
     .carrossel {
-        flex-direction: column;
+      flex-direction: column;
+      align-items: center;
     }
-}
+  
+    .carrossel .texto, .carrossel-imagens {
+      width: 100%;
+      max-width: 100%;
+      flex: none;
+    }
+  
+    .services {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .service {
+      flex: 1 1 100%;
+    }
+  
+    .case-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .cta-button {
+      width: 100%;
+      font-size: 1rem;
+      padding: 12px 20px;
+    }
+  }
+  
