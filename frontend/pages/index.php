@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../styles/index.css" />
     <title>Projeto-SaaS</title>
@@ -11,18 +11,30 @@
 
 <body class="dark-mode">
     <header>
-        <h1>Projeto SaaS</h1>
+    <h1>Projeto SaaS</h1>
         <nav>
             <a href="#sobre">Sobre</a>
             <a href="#servicos">Soluções</a>
             <a href="#cases">Casos</a>
             <a href="#contato">Contato</a>
-            <a href="../pages/login.html" target="_blank">Login</a>
-            <button id="toggle-theme-btn" aria-label="Abrir configurações" title="Abrir configurações" type="button">
+            <a href="../pages/login.php" target="_blank">Login</a>
+
+            <button id="toggle-theme-btn" aria-label="Abrir menu" title="Abrir menu" type="button">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
+
+            <!-- Menu dropdown -->
+            <div class="dropdown-menu" id="dropdown-menu">
+            <ul>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                    <span class="switch-label" id="theme-label">Modo Claro</span>
+                </label>
+            </ul>
+            </div>
         </nav>
     </header>
 
@@ -150,8 +162,6 @@
             </div>
         </div>
     </section>
-
-
 
     <section id="contato" class="contato">
         <h2>Fale Conosco</h2>
