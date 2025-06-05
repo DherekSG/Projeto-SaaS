@@ -20,3 +20,6 @@ Estrutura geral do train_model:
 
 Adicionado o train_model funcional.
 
+
+Adicionado requirements_full, com todas as libs de python, comando: pip install -r requirements_full.txt
+
