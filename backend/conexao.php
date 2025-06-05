@@ -1,12 +1,12 @@
 <?php
-// conexão do banco de dados
 $host = "localhost";
-$dbname = "projeto_SaaS";
-$port = "5432";
-$user = "root";
-$pass = "admin123"; // COLOCA A SENHA AQUI CABAÇO
-
-$coon = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-$coon->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-echo "Conexão realizada com sucesso!";
+$dbname = "projeto_saas"; 
+$user = "postgres";       
+$pass = "sua_senha";      
+try {
+    $conn = new PDO("pgsql:host=$host;dbname=$dbname", $user, $pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erro na conexão com o banco de dados PostgreSQL: " . $e->getMessage());
+}
 ?>
