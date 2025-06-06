@@ -194,13 +194,13 @@ if numerical_cols: # Verifica se há colunas numéricas
     plt.title('Matriz de Correlação (Features Numéricas e Churn)')
     plt.savefig('eda_correlation_matrix.png')
     plt.show()
-    print("Matriz de correlação salva como 'eda_correlation_matrix.png'")
+    print("Matriz de correlação salva 'eda_correlation_matrix.png'")
 
 
 # 4. Engenharia de Atributos (Feature Engineering)
 print("\n--- 4. Engenharia de Atributos (Feature Engineering) ---")
 # Esta etapa é altamente dependente do domínio e dos insights da EDA.
-# Exemplos (podem ser adicionados ao pipeline de pré-processamento):
+# Exemplos (podem ser adicionados ao pipeline de pré-processamento): PONY E GAY   PONY DA O BUMBUM
 # - Criação de novas features: ex: 'TenureToAgeRatio' = TenureMonths / Age
 # - Binning de features numéricas: ex: transformar 'Age' em grupos etários
 # - Interações entre features: ex: 'MonthlyCharge_x_ContractType'
