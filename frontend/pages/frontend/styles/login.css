@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-    max-width: 700px;
+    max-width: 450px;
     width: 90%;
     padding: 30px;
     background-color: rgba(0, 0, 0, 0.3);
@@ -40,11 +40,11 @@ h2 {
 .input-box {
     display: flex;
     flex-direction: column;
-    width: 48%;
+    width: 100%;
     margin-bottom: 15px;
 }
 
-.input-box label, .gender-title {
+.input-box label {
     margin-bottom: 5px;
     font-weight: 600;
     color: #ffffff;
@@ -59,6 +59,33 @@ h2 {
 }
 
 .input-box input:focus {
+    outline: none;
+    border-color: #00c3ff;
+    background-color: #ffffff1a;
+}
+
+.input-box-lg {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-box-lg label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.input-box-lg input {
+    padding: 10px;
+    border: 1px solid #ffffff33;
+    border-radius: 5px;
+    background-color: #ffffff0d;
+    color: #fff;
+}
+
+.input-box-lg input:focus {
     outline: none;
     border-color: #00c3ff;
     background-color: #ffffff1a;
@@ -98,17 +125,6 @@ h2 {
 
 .button-container button:hover {
     background: linear-gradient(to right, #2575fc, #00c3ff);
-}
-
-.input-box input.erro {
-    border: 2px solid #ff4d4d;
-    background-color: #ff4d4d20;
-}
-
-.mensagem-erro {
-    color: #ff4d4d;
-    font-size: 13px;
-    margin-top: 5px;
 }
 
 @media(max-width: 600px) {
