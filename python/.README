@@ -1,0 +1,30 @@
+> ⚠️ **ATENÇÃO:**  
+> Os **diretórios de leitura e salvamento de arquivos CSV** estão definidos com caminhos absolutos.  
+> Cada colaborador DEVE **REVISAR e ajustar os CAMINHOS locais** antes de executar o notebook.
+
+
+
+
+Adicionando o .py do pré-processamento e tratamento do dataset (CSV).
+Pré-processamento
+Remoção de colunas irrelevantes (customerID)
+
+Conversão da coluna Churn em binária (Yes → 1, No → 0)
+
+Conversão da coluna TotalCharges para tipo numérico
+
+Remoção de linhas com valores ausentes
+
+Codificação one-hot (pd.get_dummies) das variáveis categóricas
+
+
+Adicionando também junto ao código: Modelo de classificação LogisticRegression com scikit-learn
+
+Treino/Teste = 80%/20%
+
+Acurácia foi definida para > 80%
+
+Output da acurácia foi de 82.40%
+
+
+-------------------------
