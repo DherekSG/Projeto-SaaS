@@ -3,11 +3,21 @@
 CREATE DATABASE projeto_saas;
 \c projeto_saas;
 
+<<<<<<< HEAD
 -- Tabela de usuarios (login do sistema)
 CREATE TABLE usuarios (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
+=======
+-- Tabela de empresas (login do sistema) cnpj + senha
+CREATE TABLE empresas (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    telefone varchar(20),
+    cnpj varchar(14) unique check (cnpj ~ '^[0-9]{14}$'),   --REGEX CNPJ apenas numeros.
+>>>>>>> 0739ea749af15caec55ff8a5c89f8064c5c267f7
     senha_hash VARCHAR(255) NOT NULL, --bcrypt,argon2,scrypt ???
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
