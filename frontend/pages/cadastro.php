@@ -1,3 +1,8 @@
+<?php
+$erro = $_GET['erro'] ?? '';
+$erros = explode(',', $erro); 
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -20,8 +25,8 @@
                 <div class="input-box">
                     <label for="cnpj">CNPJ</label>
                     <input type="text" name="cnpj" required placeholder="Digite seu CNPJ"
-                        class="<?php echo (isset($_GET['erro']) && $_GET['erro'] === 'cnpj') ? 'erro' : ''; ?>">
-                    <?php if (isset($_GET['erro']) && $_GET['erro'] === 'cnpj'): ?>
+                        class="<?php echo in_array('cnpj', $erros) ? 'erro' : ''; ?>">
+                    <?php if (in_array('cnpj', $erros)): ?>
                         <span class="mensagem-erro">Este CNPJ já está cadastrado.</span>
                     <?php endif; ?>
                 </div>
@@ -29,25 +34,37 @@
                 <div class="input-box">
                     <label for="email">Email</label>
                     <input type="email" name="email" required placeholder="Digite seu email"
-                        class="<?php echo (isset($_GET['erro']) && $_GET['erro'] === 'email') ? 'erro' : ''; ?>">
-                    <?php if (isset($_GET['erro']) && $_GET['erro'] === 'email'): ?>
+                        class="<?php echo in_array('email', $erros) ? 'erro' : ''; ?>">
+                    <?php if (in_array('email', $erros)): ?>
                         <span class="mensagem-erro">Este email já está em uso.</span>
                     <?php endif; ?>
                 </div>
 
                 <div class="input-box">
                     <label for="telefone">Telefone</label>
-                    <input type="tel" name="telefone" required placeholder="Digite seu telefone">
+                    <input type="tel" name="telefone" required placeholder="Digite seu telefone"
+                        class="<?php echo in_array('telefone', $erros) ? 'erro' : ''; ?>">
+                    <?php if (in_array('telefone', $erros)): ?>
+                        <span class="mensagem-erro">Este telefone já está em uso.</span>
+                    <?php endif; ?>
                 </div>
 
                 <div class="input-box">
                     <label for="senha">Senha</label>
-                    <input type="password" name="senha" required placeholder="Crie uma senha">
+                    <input type="password" name="senha" required placeholder="Crie uma senha"
+                        class="<?php echo in_array('senha', $erros) ? 'erro' : ''; ?>">
+                    <?php if (in_array('senha', $erros)): ?>
+                        <span class="mensagem-erro">As senhas não coincidem.</span>
+                    <?php endif; ?>
                 </div>
 
                 <div class="input-box">
                     <label for="csenha">Confirmar Senha</label>
-                    <input type="password" name="csenha" required placeholder="Confirme a senha">
+                    <input type="password" name="csenha" required placeholder="Confirme a senha"
+                        class="<?php echo in_array('senha', $erros) ? 'erro' : ''; ?>">
+                    <?php if (in_array('senha', $erros)): ?>
+                        <span class="mensagem-erro">As senhas não coincidem.</span>
+                    <?php endif; ?>
                 </div>
             </div>
 

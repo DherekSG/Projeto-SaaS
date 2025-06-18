@@ -1,0 +1,182 @@
+/* Reset e Box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Urbanist', sans-serif;
+    background: #f9faff;
+    color: #222;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar - menu lateral */
+.sidebar {
+    width: 260px;
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+}
+
+.sidebar-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.sidebar-header h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li {
+    margin-bottom: 20px;
+}
+
+.menu ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu ul li a:hover,
+.menu ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Main content */
+.main-content {
+    flex-grow: 1;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Topbar */
+.topbar {
+    background: #f1f5f9;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.welcome {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.nome-usuario {
+    font-weight: 700;
+    color: #2575fc;
+    margin-left: 5px;
+}
+
+.cnpj-info {
+    margin-left: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.logout-btn {
+    background: #2575fc;
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background: #1a4ed8;
+}
+
+/* Dashboard section */
+.dashboard {
+    padding: 30px 40px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.dashboard h1 {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+    color: #2575fc;
+}
+
+.dashboard p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+/* PowerBI embed frame */
+.powerbi-frame iframe {
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.15);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .sidebar-header {
+        display: none;
+    }
+
+    .menu ul {
+        display: flex;
+        gap: 15px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .menu ul li {
+        margin-bottom: 0;
+    }
+
+    .main-content {
+        height: calc(100vh - 60px);
+    }
+
+    .dashboard {
+        padding: 20px 15px;
+    }
+}

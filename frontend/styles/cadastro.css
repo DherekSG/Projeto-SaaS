@@ -111,6 +111,10 @@ h2 {
     margin-top: 5px;
 }
 
+input.erro {
+    border: 2px solid red;
+}
+
 @media(max-width: 600px) {
     .input-box {
         width: 100%;

@@ -1,3 +1,8 @@
+<?php
+$erro = $_GET['erro'] ?? '';
+$erros = explode(',', $erro);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,18 +14,29 @@
 </head>
 <body>
     <div class="container">
-        <form action="../backend/inserir_cliente.php" method="post">
+        <form action="/projeto-saas/backend/login_cliente.php" method="post">
             <h2>Área de Login</h2>
             <div class="content">
                 <div class="input-box-lg">
-                    <label for="nome">CNPJ</label>
-                    <input type="text" name="nome">
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" name="cnpj" 
+                        class="<?php echo in_array('cnpj', $erros) ? 'erro' : ''; ?>">
+                    <?php if (in_array('cnpj', $erros)): ?>
+                        <span class="mensagem-erro">CNPJ não encontrado.</span>
+                    <?php endif; ?>
                 </div>
                 <div class="input-box">
                     <label for="senha">Senha</label>
-                    <input type="password" name="senha">
+                    <input type="password" name="senha" 
+                        class="<?php echo in_array('senha', $erros) ? 'erro' : ''; ?>">
+                    <?php if (in_array('senha', $erros)): ?>
+                        <span class="mensagem-erro">Senha incorreta.</span>
+                    <?php endif; ?>
                 </div>
             </div>
+            <?php if (in_array('erro_servidor', $erros)): ?>
+                <div class="alert alert-error">Erro no servidor. Tente novamente mais tarde.</div>
+            <?php endif; ?>
             <div class="alert">
                 <p>Não possui uma conta? <a href="../pages/cadastro.php">Cadastre-se!</a></p>
             </div>

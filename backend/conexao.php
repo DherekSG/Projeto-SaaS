@@ -1,8 +1,9 @@
 <?php
 $host = "localhost";
+$port = "5432";
 $dbname = "projeto_saas"; 
 $user = "postgres";       
-$pass = "sua_senha";      
+$pass = "0232610082";      
 try {
     $conn = new PDO("pgsql:host=$host;dbname=$dbname", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

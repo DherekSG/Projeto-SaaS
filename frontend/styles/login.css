@@ -127,6 +127,21 @@ h2 {
     background: linear-gradient(to right, #2575fc, #00c3ff);
 }
 
+.input-box input.erro {
+    border: 2px solid #ff4d4d;
+    background-color: #ff4d4d20;
+}
+
+.mensagem-erro {
+    color: #ff4d4d;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+input.erro {
+    border: 2px solid red;
+}
+
 @media(max-width: 600px) {
     .input-box {
         width: 100%;

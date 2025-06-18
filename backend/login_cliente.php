@@ -2,50 +2,54 @@
 require 'conexao.php';
 session_start();
 
-// Define timezone
 date_default_timezone_set('America/Sao_Paulo');
 
-// Coleta os dados do formulário
 $cnpj = $_POST['cnpj'] ?? '';
 $senha = $_POST['senha'] ?? '';
 
-// Verifica se os campos foram preenchidos
-if (empty($cnpj) || empty($senha)) {
-    echo "Preencha todos os campos.";
-    exit();
-}
+// Limpa o CNPJ (apenas números)
+$cnpj = preg_replace('/\D/', '', $cnpj);
+
+$erros = [];
 
 try {
-    // Busca o cliente no banco de dados (PostgreSQL usa aspas duplas para nomes de colunas/tabelas)
-    $sql = "SELECT * FROM clientes WHERE cnpj = :cnpj";
+    $sql = 'SELECT * FROM empresas WHERE cnpj = :cnpj';                 
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':cnpj', $cnpj);
     $stmt->execute();
 
-    $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
+    $empresa = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($cliente && password_verify($senha, $cliente['senha'])) {
-        // Login bem-sucedido
-
-        // Inicia sessão
-        $_SESSION['usuario_id'] = $cliente['id'];
-        $_SESSION['nome'] = $cliente['nome'];
-        $_SESSION['cnpj'] = $cliente['cnpj'];
-
-        // Cria pasta personalizada (opcional)
-        $dir = "../clientes/" . preg_replace("/[^a-zA-Z0-9]/", "_", $cliente['cnpj']);
-        if (!is_dir($dir)) {
-            mkdir($dir, 0755, true);
-        }
-
-        // Redireciona para a área exclusiva
-        header("Location: ../pages/area_exclusiva.php");
-        exit();
+    if (!$empresa) {
+        $erros[] = 'cnpj'; // CNPJ não encontrado
     } else {
-        echo "CNPJ ou senha incorretos.";
+        if (!password_verify($senha, $empresa['senha_hash'])) {
+            $erros[] = 'senha'; // Senha incorreta
+        }
     }
 
+    if (!empty($erros)) {
+        $erroStr = implode(',', $erros);
+        header("Location: ../frontend/pages/login.php?erro=$erroStr");
+        exit;
+    }
+
+    // Login válido, cria sessão
+    $_SESSION['usuario_id'] = $empresa['id'];
+    $_SESSION['nome'] = $empresa['nome'];
+    $_SESSION['cnpj'] = $empresa['cnpj'];
+
+    $dir = "../clientes/" . preg_replace("/[^a-zA-Z0-9]/", "_", $empresa['cnpj']);
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+
+    header("Location: ../frontend/pages/area_exclusiva.php");
+    exit();
+
 } catch (PDOException $e) {
-    echo "Erro no login: " . $e->getMessage();
+    // Pode criar uma mensagem de erro genérica ou logar
+    header("Location: ../frontend/pages/login.php?erro=erro_servidor");
+    exit;
 }
 ?>
