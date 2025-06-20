@@ -16,7 +16,8 @@ if(!$nome || !$email)
 
 try {
     //Preparar o comando SQL para inserÇão com placeholders
-    $sql = "INSERT INTO clientes (nome, email, telefone) VALUES (:nome, :email, :telefone)";
+    $sql = "INSERT INTO clientes (nome, email, telefone)
+            VALUES (:nome, :email, :telefone)";
     $stmt = $pdo->prepare($sql);
 
     // Vincular os valores reais aos placeholders
