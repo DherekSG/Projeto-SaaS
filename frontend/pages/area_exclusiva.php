@@ -6,8 +6,7 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 
-$nome = $_SESSION['nome'];
-$cnpj = $_SESSION['cnpj'];
+$usuario = $_SESSION['usuario'];
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +31,7 @@ $cnpj = $_SESSION['cnpj'];
                     <li><a href="#">Retenção</a></li>
                     <li><a href="#">Perdas</a></li>
                     <li><a href="#">Relatórios</a></li>
+                    <li><a href="#">Cadastro</a></li>
                     <li><a href="#">Configurações</a></li>
                 </ul>
             </nav>
@@ -40,8 +40,7 @@ $cnpj = $_SESSION['cnpj'];
         <main class="main-content">
             <header class="topbar">
                 <div class="welcome">
-                    Bem-vindo, <span class="nome-usuario"><?php echo htmlspecialchars($nome); ?></span>!
-                    <span class="cnpj-info">CNPJ: <?php echo htmlspecialchars($cnpj); ?></span>
+                    Bem-vindo, <span class="usuario-info">Usuário: <?php echo htmlspecialchars($usuario); ?></span>
                 </div>
                 <a href="../pages/index.php" class="logout-btn" title="Sair da conta">Sair</a>
             </header>

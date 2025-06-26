@@ -18,11 +18,11 @@ $erros = explode(',', $erro);
             <h2>Área de Login</h2>
             <div class="content">
                 <div class="input-box-lg">
-                    <label for="cnpj">CNPJ</label>
-                    <input type="text" name="cnpj" 
-                        class="<?php echo in_array('cnpj', $erros) ? 'erro' : ''; ?>">
-                    <?php if (in_array('cnpj', $erros)): ?>
-                        <span class="mensagem-erro">CNPJ não encontrado.</span>
+                    <label for="usuario">Usuário</label>
+                    <input type="text" name="usuario" 
+                        class="<?php echo in_array('usuario', $erros) ? 'erro' : ''; ?>">
+                    <?php if (in_array('usuario', $erros)): ?>
+                        <span class="mensagem-erro">Usuário não encontrado.</span>
                     <?php endif; ?>
                 </div>
                 <div class="input-box">
@@ -38,7 +38,7 @@ $erros = explode(',', $erro);
                 <div class="alert alert-error">Erro no servidor. Tente novamente mais tarde.</div>
             <?php endif; ?>
             <div class="alert">
-                <p>Não possui uma conta? <a href="../pages/cadastro.php">Cadastre-se!</a></p>
+                <p>Não possui uma conta? Cadastre-se diretamente com o administrador do sistema.</p>
             </div>
             <div class="button-container">
                 <button type="submit">Entrar</button>

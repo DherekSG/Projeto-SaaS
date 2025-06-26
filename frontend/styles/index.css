@@ -209,23 +209,36 @@ body.dark-mode nav a:hover {
   .switch-label {
     font-weight: 500;
   }
-  
+
+/* Logo */
+
+.logo-container {
+  display: flex;
+  align-items: center; 
+  gap: 8px; 
+}
+
+.logo {
+  width: 50px; 
+  height: auto; 
+}
+
 /* Destaques */
 
 .destaque {
-    color: #ffdd57; 
+    color: #66e75d; 
     font-weight: 800;
 }
 body.dark-mode .destaque {
-    color: #ffdd57; 
+    color: #66e75d; 
 }
 
 .destaque2 {
-    color: #ffdd57; 
+    color: #66e75d; 
     font-weight: 800;
 }
 body.dark-mode .destaque2 {
-    color: #ffdd57; 
+    color: #66e75d; 
 }
 
 /* Seções */

@@ -4,26 +4,25 @@ session_start();
 
 date_default_timezone_set('America/Sao_Paulo');
 
-$cnpj = $_POST['cnpj'] ?? '';
+$usuario = trim($_POST['usuario'] ?? '');
 $senha = $_POST['senha'] ?? '';
-
-// Limpa o CNPJ (apenas números)
-$cnpj = preg_replace('/\D/', '', $cnpj);
 
 $erros = [];
 
 try {
-    $sql = 'SELECT * FROM empresas WHERE cnpj = :cnpj';                 
+    // Buscando pelo campo "usuario"
+    $sql = 'SELECT * FROM administradores WHERE usuario = :usuario';
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':cnpj', $cnpj);
+    $stmt->bindParam(':usuario', $usuario);
     $stmt->execute();
 
-    $empresa = $stmt->fetch(PDO::FETCH_ASSOC);
+    $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if (!$empresa) {
-        $erros[] = 'cnpj'; // CNPJ não encontrado
+    if (!$admin) {
+        $erros[] = 'usuario'; // Usuário não encontrado
     } else {
-        if (!password_verify($senha, $empresa['senha_hash'])) {
+        // Comparação direta da senha, sem hash
+        if ($senha !== $admin['senha']) {
             $erros[] = 'senha'; // Senha incorreta
         }
     }
@@ -34,12 +33,12 @@ try {
         exit;
     }
 
-    // Login válido, cria sessão
-    $_SESSION['usuario_id'] = $empresa['id'];
-    $_SESSION['nome'] = $empresa['nome'];
-    $_SESSION['cnpj'] = $empresa['cnpj'];
+    // Login válido
+    $_SESSION['usuario_id'] = $admin['id'];
+    $_SESSION['nome'] = $admin['nome'];
+    $_SESSION['usuario'] = $admin['usuario'];
 
-    $dir = "../clientes/" . preg_replace("/[^a-zA-Z0-9]/", "_", $empresa['cnpj']);
+    $dir = "../clientes/" . preg_replace("/[^a-zA-Z0-9]/", "_", $admin['usuario']);
     if (!is_dir($dir)) {
         mkdir($dir, 0755, true);
     }
@@ -48,8 +47,6 @@ try {
     exit();
 
 } catch (PDOException $e) {
-    // Pode criar uma mensagem de erro genérica ou logar
     header("Location: ../frontend/pages/login.php?erro=erro_servidor");
     exit;
 }
-?>
