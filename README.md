@@ -9,54 +9,90 @@ Este projeto tem como objetivo o desenvolvimento de uma aplicação SaaS voltada
 - Cadastro de clientes, atendimentos e feedbacks via interface web
 - Previsão de churn com script Python e algoritmos de ML
 - Visualização de métricas como NPS, churn e satisfação média com Power BI
-- Interface desktop offline (CRUD local em C#)
 - Modo demo com dados simulados
 
-## 🧱 Stack Tecnológica
+## 🧱 Tecnologias Utilizadas
 
-| Camada              | Tecnologias |
-|---------------------|-------------|
-| Frontend            | HTML5, CSS3, Bootstrap |
-| Backend             | PHP, PostgreSQL |
-| Análise/ML          | Python (pandas, scikit-learn) |
-| Visualização        | Power BI |
-| Interface Desktop   | C# (Windows Forms) |
-| Versionamento       | Git + GitHub |
-| Deploy (opcional)   | XAMPP, EC2 Free Tier, Replit |
+### 💻 Backend:
+- PHP (com PDO para PostgreSQL)
+- PostgreSQL (estrutura relacional com tabelas normalizadas)
 
-## 📂 Estrutura do Projeto
+### 🌐 Frontend:
+- HTML5 + CSS3 (com Bootstrap)
+- Formulários integrados ao backend
+
+### 🧠 Machine Learning:
+- Python (pandas, scikit-learn, joblib)
+- Modelo de regressão treinado com dados reais simulados
+- Exportação de previsões para CSV e/ou banco de dados
+
+### 📊 Visualização:
+- Power BI (dashboards de churn, NPS, base ativa, etc.)
+
+---
+## 📁 Estrutura de Pastas
+
 ```
 Projeto-SaaS/
-├── backend/        # Código PHP (API, login, rotas)
-├── desktop/        # Código C# (interface offline)
-├── docs/           # Documentação e diagramas
-├── datasets/       # Dados de teste e arquivos CSV
-├── frontend/       # HTML, CSS, JS, Bootstrap
-├── powerbi/        # Dashboards e arquivos PBIX
-├── python/         # Scripts de análise e ML
-├── sql/            # Scripts SQL para criação e povoamento do BD
-├── .gitignore
+├── backend/               # Scripts PHP
+│   ├── conexao.php
+│   ├── inserir_cliente.php
+│   ├── inserir_feedback.php
+│   └── listar_clientes.php
+├── frontend/              # Formulários HTML
+│   ├── cadastro_cliente.html
+│   ├── cadastro_feedback.html
+│   └── login.html
+├── python/                # Scripts de ML
+│   ├── churn_model.py
+│   ├── predict_churn.py
+│   └── dataset.csv
+├── sql/                   # Scripts SQL
+│   ├── schema.sql
+│   └── dados_teste.sql
+├── docs/                  # Documentação e diagramas
+│   ├── diagrama.dbml
+│   └── arquitetura.md
 └── README.md
 ```
+
+---
+
+## 🧪 Como Executar Localmente
+
+### 1. Banco de Dados
+- Instale PostgreSQL e crie o banco `projeto_saas`
+- Execute `sql/schema.sql` para criar as tabelas
+- Execute `sql/dados_teste.sql` para inserir dados fictícios
+
+### 2. Backend
+- Configure `conexao.php` com seu usuário e senha local
+- Acesse os formulários via navegador (ex: `cadastro_cliente.html`)
+
+### 3. Python (ML)
+- Execute `churn_model.py` para treinar o modelo
+- Execute `predict_churn.py` para gerar previsões (salvas em CSV ou banco)
+
+### Requisitos
+- PHP + XAMPP
+- PostgreSQL
+- Python 3.x
+- Power BI Desktop
+
+---
 
 
 ## 👥 Equipe
 
 | Nome    | Função |
 |---------|--------|
-| **[Dherek](https://github.com/DherekSG)** | Líder técnico geral, integração de módulos |
+| **[Dherek](https://github.com/DherekSG)** | Líder técnico geral, integração de módulos, Python |
 | **[Tego](https://github.com/TiagoRochaDSantos)**   | Backend em PHP e integração com Python |
 | **[Hey](https://github.com/Gucostaa)**    | Backend em PHP e integração a Banco de dados |
-| **[Gaby](https://github.com/TheNamelessAngel)**   | Interface desktop em C#, testes |
-| **[Livai](https://github.com/Livai1)**  | Backend em C#, Qualidade visual e testes |
-| **[Pony](https://github.com/juanmh10)**   | Banco de dados, Power BI e documentação |
+| **[Gaby](https://github.com/TheNamelessAngel)**   | Banco de Dados |
+| **[Livai](https://github.com/Livai1)**  | Backend, Banco de Dados|
+| **[Pony](https://github.com/juanmh10)**   | Banco de dados, Python, Power BI e documentação |
 
-## ⚙️ Como Executar
 
-### Requisitos
-- PHP + XAMPP ou Replit
-- PostgreSQL
-- Python 3.x
-- Power BI Desktop
-- Visual Studio (para o app CS#)
-.
+## 📄 Licença
+Este projeto é livre para fins educacionais e de portfólio.
