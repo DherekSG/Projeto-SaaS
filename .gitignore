@@ -3,4 +3,5 @@ node_modules/
 *.exe
 *.pbix
 .idea/
+/sql/backup_saas.sql
 backend/conexao.php
