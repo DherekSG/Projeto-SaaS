@@ -5,26 +5,43 @@
 
 
 
-Adicionando o .py do pré-processamento e tratamento do dataset (CSV).
-Pré-processamento
-Remoção de colunas irrelevantes (customerID)
+Adicionando scripts .py relacionados á Machine Learning.
 
-Conversão da coluna Churn em binária (Yes → 1, No → 0)
+preprocess.py
+Faz o pré processamento do csv bruto, normalizar e padroniza colunas, bem como define a coluna 'CHURN' como eixo X
 
-Conversão da coluna TotalCharges para tipo numérico
+----------
 
-Remoção de linhas com valores ausentes
+predict_churn_xgboost.py
+Importa o modelo treinado e testa no dataset ja processado.
 
-Codificação one-hot (pd.get_dummies) das variáveis categóricas
+----------
+
+plot_model.py
+Plota 3 graficos para a visualização.
+
+----------
+
+Métricas:
+Accuracy: 0.9505
+F1-score: 0.7677
+Recall: 0.8421
 
 
-Adicionando também junto ao código: Modelo de classificação LogisticRegression com scikit-learn
 
-Treino/Teste = 80%/20%
+------------------------------------------------------------------------------------
 
-Acurácia foi definida para > 80%
+Adicionando scripts de inserção do banco de dados.
 
-Output da acurácia foi de 82.40%
+insert_churn.py
+Insere o dados do dataset de churn no banco de dados, cada linha está relacionada a uma coluna chamada empresa_id.
 
+----------
 
--------------------------
+insert_empresas.py
+Insere do dados do csv das empresas no banco de dados.
+
+----------
+
+test.conn.py
+Testa a conexão com o banco de dados.

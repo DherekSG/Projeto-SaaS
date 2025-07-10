@@ -1,3 +1,5 @@
 Documentação do PowerBI.
-Updating...
+Adicionado print da Dashboard
+
+Adicionado arquivo .pbix
 
